@@ -18,10 +18,10 @@ const ORB_SIZE = 30;
 // ATUALIZAÇÃO: Adicionado 'target' (meta de pontos) para cada nível
 // ============================================================
 const LEVELS = {
-  facil: { speed: 8, decay: 0.15, bonus: 15, label: "Fácil", target: 10 },
-  medio: { speed: 12, decay: 0.3, bonus: 10, label: "Médio", target: 15 },
-  dificil: { speed: 18, decay: 0.5, bonus: 7, label: "Difícil", target: 20 },
-  insano: { speed: 25, decay: 0.8, bonus: 4, label: "Insano", target: 30 },
+  facil: { speed: 8, decay: 1.5, bonus: 10, label: "Fácil", target: 10 },
+  medio: { speed: 12, decay: 2.0, bonus: 8, label: "Médio", target: 15 },
+  dificil: { speed: 18, decay: 2.2, bonus: 6, label: "Difícil", target: 20 },
+  insano: { speed: 25, decay: 3.5, bonus: 3, label: "Insano", target: 30 },
 };
 
 export default function OrbeFlutuante() {
