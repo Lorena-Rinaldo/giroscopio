@@ -1,12 +1,14 @@
 import { StyleSheet, View } from "react-native";
 import LeituraGiroscopio from "@/components/LeituraGiroscopio";
 import OrbeFlutuante from "@/components/OrbeFlutuante"
+import ColeteOrbe from "@/components/ColeteOrbe";
 
 export default function Index() {
   return (
     <View style={styles.container}>
       {/* <LeituraGiroscopio /> */}
-      <OrbeFlutuante />
+      {/* <OrbeFlutuante /> */}
+      <ColeteOrbe />
     </View>
   );
 }
