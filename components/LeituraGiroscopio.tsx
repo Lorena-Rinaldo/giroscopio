@@ -1,13 +1,13 @@
 // PASSO 1: Importar tudo o que vamos precisar.
 // 'React', 'useState' e 'useEffect' são as ferramentas essenciais do React.
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 // 'View', 'Text' e 'StyleSheet' são os blocos de construção para nossa interface visual.
 import { StyleSheet, Text, View } from 'react-native';
 // E a estrela do show: o 'Gyroscope' da biblioteca expo-sensors.
 import { Gyroscope } from 'expo-sensors';
 
 // Este é o nosso componente principal, a tela do nosso aplicativo.
-export default function App() {
+export default function LeituraGiroscopio() {
   // --- A MEMÓRIA DO NOSSO COMPONENTE ---
 
   // PASSO 2: Criar uma "memória" para guardar os dados do sensor.
@@ -29,7 +29,7 @@ export default function App() {
 
     // A) Definimos a rapidez com que queremos receber atualizações do sensor.
     // 100 milissegundos (ou 10 vezes por segundo) nos dá uma resposta bem fluida.
-    Gyroscope.setUpdateInterval(300);
+    Gyroscope.setUpdateInterval(100);
 
     // B) Começamos a "escutar" o giroscópio.
     // O 'addListener' é como ligar um microfone. Ele recebe uma função que
@@ -59,7 +59,9 @@ export default function App() {
 
   // PASSO 4: Preparar os dados para exibição.
   // Pegamos os valores de x, y, e z de dentro do nosso estado 'data'.
-  const { x, y, z } = data;
+  const x = data.x || 0;
+  const y = data.y || 0;
+  const z = data.z || 0;
 
   // PASSO 5: Renderizar a interface visual (JSX).
   // Tudo o que está dentro do 'return' é o que o usuário vai ver.
@@ -72,9 +74,9 @@ export default function App() {
         Usamos '.toFixed(2)' para formatar os números, mostrando apenas duas casas decimais
         para que a leitura fique mais limpa e fácil de entender.
       */}
-      <Text style={styles.text}>x: {x.toFixed(1) == -0 ? 0 : x.toFixed(1)}</Text>
-      <Text style={styles.text}>y: {y.toFixed(1) == -0 ? 0 : y.toFixed(1)}</Text>
-      <Text style={styles.text}>z: {z.toFixed(1) == -0? 0 : z.toFixed(1)}</Text>
+      <Text style={styles.text}>x: {(x+0).toFixed(1)}</Text>
+      <Text style={styles.text}>y: {(y+0).toFixed(1)}</Text>
+      <Text style={styles.text}>z: {(z+0).toFixed(1)}</Text>
     </View>
   );
 }
@@ -85,6 +87,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2c3e50',
+    width: "100%"
   },
   title: {
     fontSize: 24,
